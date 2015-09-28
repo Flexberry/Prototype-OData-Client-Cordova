@@ -1,0 +1,28 @@
+﻿<span style="align-content:flex-end">
+    <button ng-click="addUser()">Add</button>
+</span>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Married</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in users">
+            <td>{{user.name}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.married}}</td>
+            <td>
+                <span>
+                    <button ng-click="editUser($index)">Edit</button>
+                </span>
+                <span>
+                    <button ng-click="removeUser($index)">X</button>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>
