@@ -1,28 +1,29 @@
-﻿<span style="align-content:flex-end">
-    <button ng-click="addUser()">Add</button>
-</span>
-<table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Age</th>
-            <th>Married</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="user in users">
-            <td>{{user.name}}</td>
-            <td>{{user.age}}</td>
-            <td>{{user.married}}</td>
-            <td>
-                <span>
-                    <button ng-click="editUser($index)">Edit</button>
-                </span>
-                <span>
-                    <button ng-click="removeUser($index)">X</button>
-                </span>
-            </td>
-        </tr>
-    </tbody>
-</table>
+﻿<div ng-controller="main as vm">
+
+     &nbsp;&nbsp;<button ng-click="vm.addEntity()">Add</button>
+    <!--    -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>EMail</th>
+                <th>Karma</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="entity in vm.entities">
+                <td>{{entity.Name}}</td>
+                <td>{{entity.EMail}}</td>
+                <td>{{entity.Karma}}</td>
+                <td>
+                    <span>
+                        <button ng-click="vm.editEntity(entity.__PrimaryKey)">Edit</button>
+                    </span>
+                    <span>
+                        <button ng-click="vm.removeEntity(entity, $index)">X</button>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

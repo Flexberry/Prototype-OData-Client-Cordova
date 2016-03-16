@@ -2,20 +2,29 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>CRUDTable</title>
+    <title>ODataApp</title>
 
-    <!-- CRUDTable references -->
+    <!-- ODataApp references -->
+    <link href="css/index.css" rel="stylesheet"/>
+    <script src="scripts/odatajs-4.0.0.js"></script>
     <script src="scripts/angular.js"></script>
     <script src="scripts/angular-route.js"></script>
 
 </head>
-<body ng-app="crudtableApp">
-    <h2>CRUD Table</h2>
-    
+<body id="view" style="margin-left: 8px;" ng-app="app" >
+    <!--class="ng-cloak view"-->
+    <h2>OData CRUD App</h2>
+
     <div ng-view></div>
 
+    <!-- 3rd party libs -->
     <script src="app/app.js"></script>
-    <script src="app/controllers.js"></script>
+    <script src="app/app.config.js"></script>
+    <script src="app/partials/add.js"></script>
+    <script src="app/partials/edit.js"></script>
+    <script src="app/partials/main.js"></script>
+    <script src="app/datacontext.js"></script>
+<script src="app/logger.js"></script>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>

@@ -1,26 +1,30 @@
-﻿<h4>Edit user[{{userId}}]</h4>
-<form name="editForm">
-    <fieldset>
-        <table>
-            <tr>
-                <td><label for="userName">Name</label></td>
-                <td><input id="userName" ng-model="users[userId].name" required placeholder="Введите имя" /></td>
-            </tr>
-            <tr>
-                <td><label for="userAge">Age</label></td>
-                <td><input id="userAge" type="number" min="0" max="130" ng-model="users[userId].age" required placeholder="Введите возраст" />
-            </tr>
-            <tr>
-                <td><label for="userMarried">Married</label></td>
-                <td><input id="userMarried" type="checkbox" ng-model="users[userId].married" required /></td>
-            </tr>
-        </table>
-        </br>
-        <span>
-            <button ng-click="cancelChanges()">Cancel</button>
-        </span>
-        <span>
-            <button ng-click="saveChanges()">Save</button>
-        </span>
-    </fieldset>
-</form>
+﻿<div ng-controller="edit as vm">
+    <h3>Edit entity[{{vm.entityKey}}]</h3>
+    <form name="editForm">
+        <fieldset>
+            <table>
+                <tr>
+                    <td><label for="Name">Name</label></td>
+                    <td><input id="Name" ng-model="vm.entity.Name" required placeholder="Введите имя" /></td>
+                </tr>
+                <tr>
+                    <td><label for="EMail">EMail</label></td>
+                    <td><input id="EMail" ng-model="vm.entity.EMail" required placeholder="Введите E-mail" /></td>
+                </tr>
+                <tr>
+                    <td><label for="Karma">Karma</label></td>
+                    <td><input id="Karma" type="number" ng-model="vm.entity.Karma" required placeholder="Введите карму" /></td>
+                </tr>
+            </table>
+            <br>
+            <span>
+                <button ng-click="vm.cancelChanges()">Cancel</button>
+            </span>
+            <span>
+                <button ng-click="vm.saveChanges()">Save</button>
+            </span>
+        </fieldset>
+    </form>
+</div>
+
+
