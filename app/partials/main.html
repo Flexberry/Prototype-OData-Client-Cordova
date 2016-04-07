@@ -5,16 +5,18 @@
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>EMail</th>
-                <th>Karma</th>
+                <th>Address</th>
+                <th>Text</th>
+                <th>Votes</th>
+                <th>Moderated</th>
             </tr>
         </thead>
         <tbody>
             <tr data-ng-repeat="entity in vm.entities">
-                <td>{{entity.Name}}</td>
-                <td>{{entity.EMail}}</td>
-                <td>{{entity.Karma}}</td>
+                <td>{{entity.Address}}</td>
+                <td>{{entity.Text}}</td>
+                <td>{{entity.Votes}}</td>
+                <td>{{entity.Moderated}}</td>
                 <td>
                     <span>
                         <button ng-click="vm.editEntity(entity.__PrimaryKey)">Edit</button>

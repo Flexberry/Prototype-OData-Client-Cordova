@@ -1,0 +1,28 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Author</h3>
+</div>
+<div class="modal-body">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-repeat="entity in entities">
+                
+                    <td><a href="#" ng-click="$event.preventDefault(); selected.entity = entity">{{entity.Name}}</a></td>
+                    <td>{{entity.EMail}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+    </br>
+    Selected: <b>{{ selected.entity.Name }}</b>
+   
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

@@ -6,10 +6,12 @@
 
     <!-- ODataApp references -->
     <link href="css/index.css" rel="stylesheet"/>
-    <script src="scripts/odatajs-4.0.0.js"></script>
     <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-animate.js"></script>
     <script src="scripts/angular-route.js"></script>
-
+    <script src="scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/ui-bootstrap-csp.css" rel="stylesheet"/>
 </head>
 <body id="view" style="margin-left: 8px;" ng-app="app" >
     <!--class="ng-cloak view"-->
@@ -24,7 +26,8 @@
     <script src="app/partials/edit.js"></script>
     <script src="app/partials/main.js"></script>
     <script src="app/datacontext.js"></script>
-<script src="app/logger.js"></script>
+    <script src="app/partials/lookup/lookup.js"></script>
+    <script src="app/partials/lookupDetail/lookupDetail.js"></script>
 
     <!-- Cordova reference, this is added to your app when it's built. -->
     <script src="cordova.js"></script>

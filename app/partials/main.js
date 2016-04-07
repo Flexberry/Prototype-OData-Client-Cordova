@@ -1,25 +1,23 @@
 ﻿(function () {
 
     angular.module('app').controller('main',
-    ['$location'/*,'logger'*/, 'datacontext', controller]);
+    ['$location', 'datacontext', controller]);
 
-    function controller($location/*, logger*/, datacontext) {
+    function controller($location, datacontext) {
 
         var vm = this;
+        vm.entities = [];
+        vm.entityName = 'FlexberryEmberDemoSuggestions';
 
-        vm.errorMessage = '';
-        //vm.getEntities = getEntities;
         vm.addEntity = addEntity;
         vm.removeEntity = removeEntity;
         vm.editEntity = editEntity;
-
-        vm.entities = [];
 
         getEntities();
 
         function getEntities() {
 
-            datacontext.getAllEntities()
+            datacontext.getAllEntities(vm.entityName)
                            .then(success, failed);
 
             function success(response) {
@@ -39,7 +37,7 @@
         function removeEntity(entityR, index) {
             vm.entities.splice(index, 1);
 
-            datacontext.deleteEntity(entityR.__PrimaryKey);
+            datacontext.deleteEntity(vm.entityName, entityR.__PrimaryKey);
             
             $location.path('/');
         };

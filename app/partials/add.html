@@ -4,25 +4,77 @@
         <fieldset>
             <table>
                 <tr>
-                    <td><label for="Name">Name</label></td>
-                    <td><input id="Name" ng-model="vm.entity.Name" required placeholder="Введите имя" /></td>
+                    <td><label for="Address">Address</label></td>
+                    <td><input id="Address" ng-model="vm.entity.Address" required placeholder="Введите адрес" /></td>
                 </tr>
                 <tr>
-                    <td><label for="EMail">EMail</label></td>
-                    <td><input id="EMail" ng-model="vm.entity.EMail" required placeholder="Введите E-mail" /></td>
+                    <td><label for="Text">Text</label></td>
+                    <td><input id="Text" ng-model="vm.entity.Text" required placeholder="Введите текст" /></td>
                 </tr>
                 <tr>
-                    <td><label for="Karma">Karma</label></td>
-                    <td><input id="Karma" type="number" ng-model="vm.entity.Karma" required placeholder="Введите карму" /></td>
+                    <td><label for="Votes">Votes</label></td>
+                    <td><input id="Votes" type="number" ng-model="vm.entity.Votes" required placeholder="Введите кол-во голосов"/></td>
                 </tr>
+                <tr>
+                    <td><label for="Moderated">Moderated</label></td>
+                    <td><input id="Moderated" type="checkbox" ng-model="vm.entity.Moderated" required /></td>
+                </tr>
+                <!--vvv--LookUp--vvv-->
+                <tr>
+                    <td><label for="Author">Author</label></td>
+                    <td><input id="Author" ng-model="vm.entity.entityLookup.Name" required placeholder="Author" readonly /><button type="button" ng-click="vm.lookup()">...</button><button type="button" ng-click="vm.clearLookup()">X</button></td>
+                </tr>
+                <!--^^^--LookUp--^^^-->
+                <!--vvv--LookUp2--vvv-->
+                <tr>
+                    <td><label for="Type">Type</label></td>
+                    <td><input id="Type" ng-model="vm.entity.entityLookup2.Name" required placeholder="Type" readonly /><button type="button" ng-click="vm.lookup2()">...</button><button type="button" ng-click="vm.clearLookup2()">X</button></td>
+                </tr>
+                <!--^^^--LookUp2--^^^-->
             </table>
+
+
+            <br>
+            <!--vvv--Детейлы--vvv-->
             <br>
             <span>
-                <button ng-click="vm.cancelAdd()">Cancel</button>
+                <button ng-click="vm.DetailAdd()">+</button>
             </span>
-            <span>
-                <button ng-click="vm.addEntity()">Add</button>
-            </span>
-        </fieldset>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Text</th>
+                        <th>Votes</th>
+                        <th>Moderated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="Detail in vm.Details">
+                        <td>{{Detail.Text}}</td>
+                        <td>{{Detail.Votes}}</td>
+                        <td>{{Detail.Moderated}}</td>
+                        <td>
+                            <span>
+                                <button ng-click="vm.DetailAdd($index)">Edit</button>
+                            </span>
+                            <span>
+                                <button ng-click="vm.removeDetail(Detail, $index)">X</button>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+
+            <br>
+            <!--^^^--Детейлы--^^^-->
+        <br>
+        <br>
+        <span>
+            <button ng-click="vm.cancelAdd()">Cancel</button>
+        </span>
+        <span>
+            <button ng-click="vm.addEntity()">Add</button>
+        </span>
+</fieldset>
     </form>
 </div>

@@ -1,0 +1,24 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Comment</h3>
+</div>
+<div class="modal-body">
+    <table>
+        <tr>
+            <td><label for="Text">Text</label></td>
+            <td><input id="Text" ng-model="Detail.Text" required placeholder="Введите текст" /></td>
+        </tr>
+        <tr>
+            <td><label for="Votes">Votes</label></td>
+            <td><input id="Votes" type="number" ng-model="Detail.Votes" required placeholder="Введите кол-во голосов" /></td>
+        </tr>
+        <tr>
+            <td><label for="Moderated">Moderated</label></td>
+            <td><input id="Moderated" type="checkbox" ng-model="Detail.Moderated" required /></td>
+        </tr>
+    </table>
+   
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

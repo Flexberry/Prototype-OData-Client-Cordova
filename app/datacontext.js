@@ -6,8 +6,6 @@
     function datacontext($http) {
 
         var serviceRoot = 'http://flexberry-ember-demo.azurewebsites.net/odata/';
-        var entityName = 'FlexberryEmberDemoApplicationUsers';
-
         var headers = { 'Content-Type': 'application/json', Accept: 'application/json' };
 
         var service = {
@@ -15,15 +13,15 @@
             getAllEntities: getAllEntities,
             createEntity: createEntity,
             deleteEntity: deleteEntity,
-            patchEntity: patchEntity
+            patchEntity: patchEntity,
         };
         return service;
 
-        function getEntity(key) {
+        function getEntity(entityName, key, end) {
 
             var req = {
                 method: 'GET',
-                url: serviceRoot + entityName + '(' + key + ')',
+                url: serviceRoot + entityName + '(' + key + ')' + end,
                 headers: headers,
                 data: null
             };
@@ -36,8 +34,8 @@
                     return response.status;
                 });
         }
-        
-        function getAllEntities() {
+
+        function getAllEntities(entityName) {
 
             var req = {
                 method: 'GET',
@@ -55,7 +53,7 @@
                 });
         }
 
-        function createEntity(initialValues) {
+        function createEntity(entityName, initialValues) {
             
             var req = {
                 method: 'POST',
@@ -66,14 +64,14 @@
             
             return $http(req).then(
                 function (response) {
-                    return response.data.value;
+                    return response.data.__PrimaryKey;
                 },
                 function (response) {
                     return response.status;
                 });
         }
 
-        function deleteEntity(key) {
+        function deleteEntity(entityName, key) {
 
             var req = {
                 method: 'DELETE',
@@ -90,7 +88,7 @@
                 });
         }
         
-        function patchEntity(key, initialValues) {
+        function patchEntity(entityName, key, initialValues) {
 
             var req = {
                 method: 'PATCH',
